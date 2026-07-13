@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yatharth Bisaria — Software Engineer</title>
+<meta name="description" content="Yatharth Bisaria — Software Engineer specializing in Java microservices, backend systems, and data pipelines.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#101826;
+    --ink-soft:#2b3550;
+    --slate:#57617a;
+    --slate-light:#8a92a8;
+    --paper:#eef1f5;
+    --paper-alt:#e4e8ee;
+    --card:#ffffff;
+    --brass:#a9822f;
+    --brass-deep:#8a6a22;
+    --verify:#1f6b4d;
+    --verify-bg:#e7f1ec;
+    --line:#d6dbe4;
+    --radius:2px;
+    --maxw:1120px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Public Sans', -apple-system, sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--brass); color:#fff;}
+
+  h1,h2,h3{
+    font-family:'Space Grotesk', sans-serif;
+    color:var(--ink);
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+  .mono{
+    font-family:'IBM Plex Mono', monospace;
+  }
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+
+  .wrap{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 32px;
+  }
+
+  /* Skip link for accessibility */
+  .skip-link{
+    position:absolute; left:-9999px; top:0;
+    background:var(--ink); color:#fff; padding:10px 16px; z-index:200;
+  }
+  .skip-link:focus{ left:16px; top:16px; }
+
+  a:focus-visible, button:focus-visible, .navlink:focus-visible{
+    outline:2px solid var(--brass);
+    outline-offset:3px;
+  }
+
+  /* ---------- NAV ---------- */
+  header.nav{
+    position:sticky; top:0; z-index:100;
+    background:rgba(238,241,245,0.86);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:18px 32px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .logo{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:700;
+    font-size:18px;
+    letter-spacing:0.02em;
+  }
+  .logo span{color:var(--brass);}
+  nav.links{
+    display:flex;
+    gap:28px;
+    align-items:center;
+  }
+  .navlink{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    color:var(--slate);
+    position:relative;
+    padding-bottom:2px;
+    transition:color .2s ease;
+  }
+  .navlink:hover{color:var(--ink);}
+  .navlink::before{content:"› ";color:var(--brass);}
+  .btn-resume{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    font-weight:500;
+    background:var(--ink);
+    color:#fff;
+    padding:9px 16px;
+    border-radius:var(--radius);
+    border:1px solid var(--ink);
+    transition:background .2s ease, transform .15s ease;
+  }
+  .btn-resume:hover{background:var(--ink-soft); transform:translateY(-1px);}
+  .navtoggle{display:none;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:96px 0 88px;
+    display:grid;
+    grid-template-columns:1.15fr 0.85fr;
+    gap:56px;
+    align-items:start;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    color:var(--brass-deep);
+    text-transform:uppercase;
+    letter-spacing:0.12em;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:18px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:22px; height:1px;
+    background:var(--brass-deep);
+  }
+  .hero h1{
+    font-size:52px;
+    line-height:1.08;
+    font-weight:700;
+    margin-bottom:22px;
+  }
+  .hero h1 .accent{color:var(--brass);}
+  .hero p.lede{
+    font-size:18px;
+    color:var(--slate);
+    max-width:52ch;
+    margin-bottom:32px;
+  }
+  .hero-ctas{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+    margin-bottom:36px;
+  }
+  .btn-primary{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:14px;
+    font-weight:500;
+    background:var(--brass);
+    color:#fff;
+    padding:13px 22px;
+    border-radius:var(--radius);
+    border:1px solid var(--brass);
+    transition:background .2s ease, transform .15s ease;
+  }
+  .btn-primary:hover{background:var(--brass-deep); transform:translateY(-1px);}
+  .btn-secondary{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:14px;
+    font-weight:500;
+    background:transparent;
+    color:var(--ink);
+    padding:13px 22px;
+    border-radius:var(--radius);
+    border:1px solid var(--line);
+    transition:border-color .2s ease, background .2s ease;
+  }
+  .btn-secondary:hover{border-color:var(--ink); background:var(--card);}
+
+  .hero-meta{
+    display:flex;
+    gap:22px;
+    flex-wrap:wrap;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    color:var(--slate);
+  }
+  .hero-meta a:hover{color:var(--brass-deep);}
+
+  /* console card */
+  .console{
+    background:var(--ink);
+    color:#dbe4ee;
+    border-radius:6px;
+    padding:22px 24px 24px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13.5px;
+    box-shadow:0 20px 40px -18px rgba(16,24,38,0.45);
+    min-height:230px;
+  }
+  .console-bar{
+    display:flex;
+    gap:6px;
+    margin-bottom:16px;
+  }
+  .console-bar span{
+    width:9px; height:9px; border-radius:50%;
+    background:#3a4560;
+  }
+  .console-line{
+    white-space:pre-wrap;
+    opacity:0;
+    animation:fadeIn .4s ease forwards;
+  }
+  .console-line.pass{color:#7fd9a8;}
+  .console-line.cmd{color:#8ea3c9;}
+  .console-cursor{
+    display:inline-block;
+    width:7px; height:14px;
+    background:#7fd9a8;
+    vertical-align:middle;
+    margin-left:2px;
+    animation:blink 1s step-end infinite;
+  }
+  @keyframes fadeIn{ to{opacity:1;} }
+  @keyframes blink{ 50%{opacity:0;} }
+
+  /* ---------- SECTION SCAFFOLD ---------- */
+  section{
+    padding:76px 0;
+    border-top:1px solid var(--line);
+  }
+  .section-head{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:24px;
+    margin-bottom:44px;
+    flex-wrap:wrap;
+  }
+  .section-tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    color:var(--brass-deep);
+    letter-spacing:0.08em;
+  }
+  .section-head h2{
+    font-size:30px;
+    margin-top:6px;
+  }
+  .section-note{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    color:var(--slate-light);
+    max-width:30ch;
+    text-align:right;
+  }
+
+  /* ---------- EXPERIENCE (timeline) ---------- */
+  .timeline{
+    display:grid;
+    grid-template-columns:26px 1fr;
+    column-gap:24px;
+  }
+  .rail{
+    position:relative;
+  }
+  .rail::before{
+    content:"";
+    position:absolute;
+    top:6px; bottom:6px; left:11px;
+    width:1px;
+    background:var(--line);
+  }
+  .node{
+    position:relative;
+    width:23px; height:23px;
+    border-radius:50%;
+    background:var(--verify-bg);
+    border:1px solid var(--verify);
+    color:var(--verify);
+    display:flex; align-items:center; justify-content:center;
+    font-size:12px;
+    z-index:1;
+  }
+  .exp-card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:26px 28px;
+    margin-bottom:28px;
+  }
+  .exp-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-bottom:6px;
+  }
+  .exp-role{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:600;
+    font-size:18px;
+  }
+  .exp-date{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    color:var(--slate);
+    background:var(--paper-alt);
+    padding:3px 9px;
+    border-radius:20px;
+  }
+  .exp-org{
+    color:var(--slate);
+    font-size:14.5px;
+    margin-bottom:14px;
+  }
+  .exp-org b{color:var(--ink); font-weight:600;}
+  ul.bullets{margin:0; padding-left:0; list-style:none;}
+  ul.bullets li{
+    position:relative;
+    padding-left:20px;
+    margin-bottom:9px;
+    color:var(--ink-soft);
+    font-size:15px;
+  }
+  ul.bullets li::before{
+    content:"▸";
+    position:absolute; left:0; top:1px;
+    color:var(--brass);
+    font-size:13px;
+    font-family:'IBM Plex Mono', monospace;
+  }
+  ul.bullets li:last-child{margin-bottom:0;}
+
+  /* ---------- PROJECTS ---------- */
+  .proj-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:24px;
+  }
+  .proj-card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:28px;
+    display:flex;
+    flex-direction:column;
+    transition:border-color .2s ease, transform .2s ease;
+  }
+  .proj-card:hover{
+    border-color:var(--brass);
+    transform:translateY(-3px);
+  }
+  .proj-stack{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-bottom:16px;
+  }
+  .chip{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+    color:var(--slate);
+    background:var(--paper-alt);
+    padding:4px 9px;
+    border-radius:20px;
+  }
+  .proj-card h3{
+    font-size:19px;
+    margin-bottom:10px;
+  }
+  .proj-card ul.bullets li{font-size:14.5px;}
+  .proj-links{
+    margin-top:18px;
+    padding-top:16px;
+    border-top:1px dashed var(--line);
+    display:flex;
+    gap:18px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+  }
+  .proj-links a{color:var(--brass-deep);}
+  .proj-links a:hover{text-decoration:underline;}
+
+  /* ---------- SKILLS ---------- */
+  .skills-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+    gap:20px;
+  }
+  .skill-cat{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:20px;
+  }
+  .skill-cat h4{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:var(--brass-deep);
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    margin:0 0 14px;
+  }
+  .skill-tags{display:flex; flex-wrap:wrap; gap:7px;}
+  .skill-tags span{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    background:var(--paper-alt);
+    padding:5px 9px;
+    border-radius:3px;
+    color:var(--ink-soft);
+  }
+
+  /* ---------- EDUCATION + CERTS ---------- */
+  .split-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:24px;
+  }
+  .info-card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:24px 26px;
+  }
+  .info-card h4{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:var(--brass-deep);
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    margin:0 0 16px;
+  }
+  .edu-row{
+    display:flex;
+    justify-content:space-between;
+    gap:12px;
+    padding:12px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .edu-row:last-child{border-bottom:none; padding-bottom:0;}
+  .edu-row:first-child{padding-top:0;}
+  .edu-name{font-weight:600; font-size:14.5px;}
+  .edu-sub{color:var(--slate); font-size:13px; margin-top:2px;}
+  .edu-score{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    color:var(--verify);
+    white-space:nowrap;
+  }
+  .cert-row{
+    display:flex;
+    gap:12px;
+    padding:10px 0;
+    border-bottom:1px solid var(--line);
+    font-size:14px;
+    color:var(--ink-soft);
+  }
+  .cert-row:last-child{border-bottom:none; padding-bottom:0;}
+  .cert-row:first-child{padding-top:0;}
+  .cert-row::before{
+    content:"◆";
+    color:var(--brass);
+    font-size:9px;
+    margin-top:5px;
+  }
+
+  /* ---------- CONTACT ---------- */
+  .contact-wrap{
+    display:grid;
+    grid-template-columns:0.9fr 1.1fr;
+    gap:48px;
+  }
+  .contact-list{list-style:none; margin:24px 0 0; padding:0;}
+  .contact-list li{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding:14px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .contact-list li:first-child{padding-top:0;}
+  .contact-list a:hover{color:var(--brass-deep);}
+  .clabel{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+    color:var(--slate-light);
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    width:76px;
+    flex-shrink:0;
+  }
+  .cvalue{font-size:15px;}
+
+  form.contact-form{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:28px;
+  }
+  .form-row{margin-bottom:18px;}
+  .form-row label{
+    display:block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:var(--slate);
+    margin-bottom:7px;
+  }
+  .form-row input, .form-row textarea{
+    width:100%;
+    font-family:'Public Sans', sans-serif;
+    font-size:14.5px;
+    padding:11px 13px;
+    border:1px solid var(--line);
+    border-radius:4px;
+    background:var(--paper);
+    color:var(--ink);
+    resize:vertical;
+  }
+  .form-row input:focus, .form-row textarea:focus{
+    outline:none;
+    border-color:var(--brass);
+  }
+  .form-submit{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:14px;
+    font-weight:500;
+    background:var(--ink);
+    color:#fff;
+    padding:12px 22px;
+    border-radius:var(--radius);
+    border:1px solid var(--ink);
+    cursor:pointer;
+    width:100%;
+    transition:background .2s ease;
+  }
+  .form-submit:hover{background:var(--ink-soft);}
+
+  footer{
+    padding:32px 0 40px;
+    text-align:center;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    color:var(--slate-light);
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 880px){
+    .wrap, .nav-inner{padding-left:22px; padding-right:22px;}
+    .hero{grid-template-columns:1fr; padding-top:52px;}
+    .hero h1{font-size:38px;}
+    nav.links{
+      display:none;
+      position:absolute;
+      top:64px; left:0; right:0;
+      background:var(--paper);
+      border-bottom:1px solid var(--line);
+      flex-direction:column;
+      align-items:flex-start;
+      padding:18px 22px 24px;
+      gap:16px;
+    }
+    nav.links.open{display:flex;}
+    .navtoggle{
+      display:block;
+      background:none; border:none;
+      font-family:'IBM Plex Mono', monospace;
+      font-size:20px;
+      color:var(--ink);
+      cursor:pointer;
+    }
+    .proj-grid, .skills-grid, .split-grid, .contact-wrap{
+      grid-template-columns:1fr;
+    }
+    .section-note{text-align:left; max-width:none;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .console-line{animation:none; opacity:1;}
+    .console-cursor{animation:none;}
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to content</a>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="#top" class="logo">YB<span>.</span></a>
+    <button class="navtoggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    <nav class="links" id="navLinks">
+      <a class="navlink" href="#experience">experience</a>
+      <a class="navlink" href="#projects">projects</a>
+      <a class="navlink" href="#skills">skills</a>
+      <a class="navlink" href="#education">education</a>
+      <a class="navlink" href="#contact">contact</a>
+      <a class="btn-resume" href="Yatharth_Bisaria_Resume.pdf" download>Download Résumé</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- HERO -->
+  <section id="top" style="border-top:none; padding-top:0;">
+    <div class="wrap hero">
+      <div>
+        <div class="eyebrow">Chennai, India · Open to relocation</div>
+        <h1>Yatharth Bisaria<br>engineers <span class="accent">backend systems for scale.</span></h1>
+        <p class="lede">Software Engineer building Java microservices and data platforms for high-concurrency, high-stakes environments — from financial transaction pipelines to full-stack products. Looking to bring that systems thinking to backend engineering and technology consulting.</p>
+        <a href="https://www.credly.com/badges/e096671f-4507-4862-88b5-d1a0ff7d6e7b/public_url" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:8px; font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:var(--verify); background:var(--verify-bg); border:1px solid var(--verify); padding:6px 12px; border-radius:20px; margin-bottom:28px;">◆ Claude Certified Architect — Anthropic <span style="color:var(--brass-deep);">↗</span></a>
+        <div class="hero-ctas">
+          <a href="#projects" class="btn-primary">View Projects</a>
+          <a href="#contact" class="btn-secondary">Get in Touch</a>
+        </div>
+        <div class="hero-meta">
+          <a href="mailto:bisariayatharth0419@gmail.com">bisariayatharth0419@gmail.com</a>
+          <a href="https://github.com/HackVYatharth" target="_blank" rel="noopener">github.com/HackVYatharth</a>
+          <a href="https://www.linkedin.com/in/yatharth-bisaria/" target="_blank" rel="noopener">linkedin.com/in/yatharth-bisaria</a>
+        </div>
+      </div>
+
+      <div class="console" id="console" aria-hidden="true">
+        <div class="console-bar"><span></span><span></span><span></span></div>
+        <div id="consoleLines"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPROACH -->
+  <section style="padding:52px 0;">
+    <div class="wrap">
+      <div class="split-grid" style="grid-template-columns:repeat(3, 1fr);">
+        <div class="info-card">
+          <h4>Structured Problem-Solving</h4>
+          <p style="margin:0; font-size:14.5px; color:var(--ink-soft);">Break ambiguous requirements into scoped, testable systems — then build for the edge cases before they become production issues.</p>
+        </div>
+        <div class="info-card">
+          <h4>Data-Driven Decisions</h4>
+          <p style="margin:0; font-size:14.5px; color:var(--ink-soft);">Turn raw transaction and usage data into risk signals, KPIs, and dashboards stakeholders can act on directly.</p>
+        </div>
+        <div class="info-card">
+          <h4>Ownership Through Delivery</h4>
+          <p style="margin:0; font-size:14.5px; color:var(--ink-soft);">From design to deployment — accountable for outcomes, not just code, across the full lifecycle of a system.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="section-tag">// 01 — experience</div>
+          <h2>Building at scale</h2>
+        </div>
+        <div class="section-note">One role, compounding responsibility — from internship to owning full‑stack delivery on production financial systems.</div>
+      </div>
+
+      <div class="timeline">
+        <div class="rail"><div class="node">●</div></div>
+        <div>
+          <div class="exp-card">
+            <div class="exp-top">
+              <span class="exp-role">Software Engineer</span>
+              <span class="exp-date">Aug 2025 — Present</span>
+            </div>
+            <div class="exp-org"><b>Cognizant Technology Solutions</b> · Chennai, Tamil Nadu</div>
+            <ul class="bullets">
+              <li>Integrated Generative AI into the development workflow, boosting script velocity by ~20% and reclaiming ~8 hours/week for architectural work.</li>
+              <li>Engineered end-to-end automation for microservice reliability on a high-concurrency financial data platform.</li>
+              <li>Optimized backend integrity via complex SQL validation, resolving bottlenecks and ensuring data accuracy across scalable DB structures.</li>
+              <li>Architected API suites to validate REST microservice performance and enforce contract compliance through scripted assertions.</li>
+              <li>Implemented data validation pipelines across distributed microservices, ensuring end-to-end accuracy for high-throughput financial workflows.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="rail"><div class="node">●</div></div>
+        <div>
+          <div class="exp-card">
+            <div class="exp-top">
+              <span class="exp-role">Software Engineering Intern</span>
+              <span class="exp-date">Mar 2025 — Jul 2025</span>
+            </div>
+            <div class="exp-org"><b>Cognizant Technology Solutions</b> · Chennai, Tamil Nadu</div>
+            <ul class="bullets">
+              <li>Owned end-to-end development of full-stack applications (FlexField) using Spring Boot, focusing on MVC architecture and scalability.</li>
+              <li>Developed modular backend services integrated with PostgreSQL to handle high-concurrency user requests efficiently.</li>
+              <li>Spearheaded front-end logic design, ensuring seamless integration between RESTful APIs and interactive UI components.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="section-tag">// 02 — projects</div>
+          <h2>Shipped, deployed, running</h2>
+        </div>
+        <div class="section-note">Two systems built end-to-end — one product, one data platform.</div>
+      </div>
+
+      <div class="proj-grid">
+        <div class="proj-card">
+          <div class="proj-stack">
+            <span class="chip">Java</span>
+            <span class="chip">Spring Boot</span>
+            <span class="chip">React</span>
+            <span class="chip">AWS EC2</span>
+          </div>
+          <h3>FlexField — Sports Logistics Platform</h3>
+          <ul class="bullets">
+            <li>Solved fragmented, manual turf-booking workflows by architecting a real-time reservation platform end-to-end, from data model to deployment.</li>
+            <li>Designed the system to hold up under concurrent demand — production-grade microservices handling simultaneous bookings without conflicts.</li>
+            <li>Built role-based access and secure transaction handling (Spring Security, JWT) to protect user and payment data.</li>
+            <li>Took the product from design to a live, production environment on AWS EC2 — owned build, deployment, and uptime.</li>
+          </ul>
+          <div class="proj-links">
+            <a href="https://github.com/HackVYatharth" target="_blank" rel="noopener">View on GitHub →</a>
+          </div>
+        </div>
+
+        <div class="proj-card">
+          <div class="proj-stack">
+            <span class="chip">Python</span>
+            <span class="chip">FastAPI</span>
+            <span class="chip">PostgreSQL</span>
+            <span class="chip">Airflow</span>
+            <span class="chip">Docker</span>
+          </div>
+          <h3>Financial Transaction Pipeline & Analytics API</h3>
+          <ul class="bullets">
+            <li>Reduced manual risk-review effort by automating anomaly detection across 50,000+ transactions per run, flagging the top 1% highest-risk activity by merchant category.</li>
+            <li>Built a Z-score/IQR-based scoring model to surface risk signals a rules-based check would miss.</li>
+            <li>Turned raw transaction data into self-service spend analytics and KPIs, giving stakeholders dashboards instead of spreadsheets.</li>
+            <li>Automated the full pipeline on a scheduled run, removing manual data prep from the workflow entirely.</li>
+          </ul>
+          <div class="proj-links">
+            <a href="https://github.com/HackVYatharth" target="_blank" rel="noopener">View on GitHub →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="section-tag">// 03 — skills</div>
+          <h2>Toolkit</h2>
+        </div>
+        <div class="section-note">Backend-leaning, with the full stack covered.</div>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-cat">
+          <h4>Languages</h4>
+          <div class="skill-tags">
+            <span>Java</span><span>Python</span><span>JavaScript</span><span>SQL</span><span>HTML5</span><span>CSS3</span>
+          </div>
+        </div>
+        <div class="skill-cat">
+          <h4>Frameworks</h4>
+          <div class="skill-tags">
+            <span>Spring Boot</span><span>Spring Security</span><span>React.js</span><span>Node.js</span><span>MySQL</span><span>PostgreSQL</span>
+          </div>
+        </div>
+        <div class="skill-cat">
+          <h4>Tools / Cloud</h4>
+          <div class="skill-tags">
+            <span>AWS (EC2)</span><span>GCP (ACE — in progress)</span><span>Postman</span><span>Selenium</span><span>Cypress</span><span>Git</span><span>Maven</span>
+          </div>
+        </div>
+        <div class="skill-cat">
+          <h4>Concepts</h4>
+          <div class="skill-tags">
+            <span>Distributed Systems</span><span>Event-Driven Arch.</span><span>Data Pipelines</span><span>High-Concurrency Systems</span><span>Agile/Scrum</span>
+          </div>
+        </div>
+        <div class="skill-cat">
+          <h4>Analytical & Domain</h4>
+          <div class="skill-tags">
+            <span>Financial Data Analytics</span><span>Risk & Anomaly Detection</span><span>KPI Dashboards</span><span>Data-Driven Decisions</span><span>Stakeholder Reporting</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION + CERTS -->
+  <section id="education">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="section-tag">// 04 — education</div>
+          <h2>Foundations</h2>
+        </div>
+      </div>
+
+      <div class="split-grid">
+        <div class="info-card">
+          <h4>Education</h4>
+          <div class="edu-row">
+            <div>
+              <div class="edu-name">Galgotias University, Greater Noida</div>
+              <div class="edu-sub">B.Tech, Computer Science & Engineering · 2021–2025</div>
+            </div>
+            <div class="edu-score">8.0 / 10.0</div>
+          </div>
+          <div class="edu-row">
+            <div>
+              <div class="edu-name">City Montessori School, Lucknow</div>
+              <div class="edu-sub">12th Grade (ISC) · 2020–2021</div>
+            </div>
+            <div class="edu-score">93.25%</div>
+          </div>
+          <div class="edu-row">
+            <div>
+              <div class="edu-name">City Montessori School, Lucknow</div>
+              <div class="edu-sub">10th Grade (ICSE) · 2018–2019</div>
+            </div>
+            <div class="edu-score">94.80%</div>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <h4>Certifications & Achievements</h4>
+          <div class="cert-row"><a href="https://www.credly.com/badges/e096671f-4507-4862-88b5-d1a0ff7d6e7b/public_url" target="_blank" rel="noopener">Claude Certified Architect (CCA-F) — Anthropic, validating production-grade AI system design <span style="color:var(--brass-deep); font-family:'IBM Plex Mono',monospace; font-size:11.5px;">↗ verify on Credly</span></a></div>
+          <div class="cert-row">Google Associate Cloud Engineer — in progress (Google Cloud Partner Program)</div>
+          <div class="cert-row">Java Developer Certification — HackerRank, validating advanced Java proficiency</div>
+          <div class="cert-row">Front-End Web Development Specialization — Udemy, React.js architecture</div>
+          <div class="cert-row">Academic Excellence Award — 94.80% (High School), 93.25% (Intermediate)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="section-tag">// 05 — contact</div>
+          <h2>Let's talk</h2>
+        </div>
+        <div class="section-note">Open to backend engineering and technology consulting roles.</div>
+      </div>
+
+      <div class="contact-wrap">
+        <div>
+          <p style="color:var(--slate); max-width:40ch; margin:0 0 8px;">Reach out directly, or send a note through the form — it opens a pre-filled email in your mail client.</p>
+          <ul class="contact-list">
+            <li><span class="clabel">Email</span><a class="cvalue" href="mailto:bisariayatharth0419@gmail.com">bisariayatharth0419@gmail.com</a></li>
+            <li><span class="clabel">Phone</span><a class="cvalue" href="tel:+916392278417">+91 63922 78417</a></li>
+            <li><span class="clabel">GitHub</span><a class="cvalue" href="https://github.com/HackVYatharth" target="_blank" rel="noopener">HackVYatharth</a></li>
+            <li><span class="clabel">LinkedIn</span><a class="cvalue" href="https://www.linkedin.com/in/yatharth-bisaria/" target="_blank" rel="noopener">yatharth-bisaria</a></li>
+          </ul>
+        </div>
+
+        <form class="contact-form" id="contactForm">
+          <div class="form-row">
+            <label for="cname">Name</label>
+            <input type="text" id="cname" name="name" required>
+          </div>
+          <div class="form-row">
+            <label for="cemail">Email</label>
+            <input type="email" id="cemail" name="email" required>
+          </div>
+          <div class="form-row">
+            <label for="cmsg">Message</label>
+            <textarea id="cmsg" name="message" rows="4" required></textarea>
+          </div>
+          <button type="submit" class="form-submit">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">© 2026 Yatharth Bisaria. Built with intent, engineered for scale.</div>
+</footer>
+
+<script>
+  // Mobile nav toggle
+  const toggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', isOpen);
+  });
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+  }));
+
+  // Contact form -> mailto
+  document.getElementById('contactForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const name = document.getElementById('cname').value;
+    const email = document.getElementById('cemail').value;
+    const msg = document.getElementById('cmsg').value;
+    const subject = encodeURIComponent('Portfolio inquiry from ' + name);
+    const body = encodeURIComponent(msg + '\n\n— ' + name + ' (' + email + ')');
+    window.location.href = 'mailto:bisariayatharth0419@gmail.com?subject=' + subject + '&body=' + body;
+  });
+
+  // Console typing sequence
+  const lines = [
+    { text: '$ systems --impact --live', cls: 'cmd' },
+    { text: '↑ top 1% high-risk transactions flagged automatically', cls: 'pass' },
+    { text: '↑ ~20% faster delivery via GenAI-integrated workflow', cls: 'pass' },
+    { text: '↑ 50,000+ transactions processed / analytics run', cls: 'pass' },
+    { text: '↑ full-stack platform shipped solo, EC2-deployed', cls: 'pass' },
+    { text: '', cls: 'cmd' },
+    { text: 'Systems thinking. Business outcomes.', cls: 'cmd' },
+  ];
+
+  const container = document.getElementById('consoleLines');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function renderLine(i){
+    if(i >= lines.length){
+      const cursor = document.createElement('span');
+      cursor.className = 'console-cursor';
+      container.appendChild(cursor);
+      return;
+    }
+    const div = document.createElement('div');
+    div.className = 'console-line ' + lines[i].cls;
+    div.textContent = lines[i].text;
+    if(!reduceMotion){
+      div.style.animationDelay = (i * 0.28) + 's';
+    }
+    container.appendChild(div);
+    if(reduceMotion){
+      renderLine(i+1);
+    } else {
+      setTimeout(() => renderLine(i+1), 280);
+    }
+  }
+  renderLine(0);
+</script>
+
+</body>
+</html>
